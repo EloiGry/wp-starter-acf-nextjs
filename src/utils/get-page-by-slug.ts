@@ -2,8 +2,6 @@ import { fetchAPI } from "./fetch-api";
 
 const fieldsConfig: { [key: string]: string[] } = {
     "accueil": ['acf'],
-
-
   };
   
 
