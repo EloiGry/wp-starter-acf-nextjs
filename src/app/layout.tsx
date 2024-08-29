@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { getMenuBySlug } from "@/utils/get-menu-by-slug";
+import { getMenuBySlug } from "@/lib/get-menu-by-slug";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -28,12 +28,11 @@ export default async function RootLayout({
   if (!dataFooter) {
     return null
   }
-  console.log(dataFooter)
   return (
     <html lang="fr">
       <body className={inter.className}>
         <Navbar menu={dataHeader}/>
-        <main className="container"> {children}</main>
+        <main className="container min-h-screen"> {children}</main>
         <Footer menu={dataFooter}/>
       </body>
     </html>

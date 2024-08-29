@@ -1,5 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import { HeroSectionType } from "@/utils/types";
+import { HeroSectionType } from "@/lib/types";
 import Link from "next/link";
 
 

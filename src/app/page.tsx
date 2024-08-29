@@ -1,5 +1,5 @@
-import { sectionRenderer } from "@/utils/sections-renderer";
-import { getPageBySlug } from "@/utils/get-page-by-slug";
+import { sectionRenderer } from "@/lib/sections-renderer";
+import { getPageBySlug } from "@/lib/get-page-by-slug";
 
 
 export default async function Home() {

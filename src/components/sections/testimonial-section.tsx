@@ -1,4 +1,4 @@
-import { TestimonialsSectionType } from "@/utils/types"
+import { TestimonialsSectionType } from "@/lib/types"
 import { Card, CardDescription, CardTitle } from "../ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
@@ -10,7 +10,7 @@ export default function TestimonialSection ({data}: TestimonialsSectionProps) {
     const testiArray = Object.values(data.alltestimonials);
     return (
         <section className="w-full py-8">
-      <div className="grid max-w-6xl items-center justify-center gap-10 text-center">
+      <div className="grid items-center justify-center gap-10 text-center">
         <div className="space-y-4">
         <h2 className="scroll-m-20 text-4xl font-extrabold tracking-tight">{data.title}</h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

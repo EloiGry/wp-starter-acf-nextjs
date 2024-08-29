@@ -1,5 +1,6 @@
 'use client'
-import { Menu, MenuItem } from "@/utils/types"
+import React from "react"
+import { Menu, MenuItem } from "@/lib/types"
 import Link from "next/link"
 import Image from "next/image"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
@@ -94,7 +95,7 @@ function MobileNavbar ({menu}: NavbarProps) {
           {menu.map((item: MenuItem) => {
             const isDropdown = item.childitems.length > 0
             return (
-                <>
+                <React.Fragment key={item.title}>
                 {isDropdown ? 
                 (
                     <Collapsible className="grid gap-2">
@@ -132,7 +133,7 @@ function MobileNavbar ({menu}: NavbarProps) {
                     {item.title}
                     </Link>
                 )}
-                </>
+                </React.Fragment>
             )
           })}
 
