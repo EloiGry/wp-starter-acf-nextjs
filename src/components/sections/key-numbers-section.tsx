@@ -1,4 +1,4 @@
-import { KeyNumbersSectionType } from "@/utils/types"
+import { KeyNumbersSectionType } from "@/lib/types"
 
 interface KeyNumbersSectionProps {
     data: KeyNumbersSectionType;

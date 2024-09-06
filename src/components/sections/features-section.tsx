@@ -1,4 +1,4 @@
-import { FeaturesSectionType } from "@/utils/types"
+import { FeaturesSectionType } from "@/lib/types"
 import { Card, CardDescription, CardTitle } from "../ui/card";
 
 interface FeaturesSectionProps {

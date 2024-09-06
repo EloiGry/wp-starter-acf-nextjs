@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Contact () {
     return (
-            <div className="flex py-8">
+            <div className="flex py-8 fade-in">
                 <Image
                         src="/contactsvg.svg"
                         alt="contactImage"

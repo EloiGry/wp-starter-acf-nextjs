@@ -118,3 +118,50 @@ interface Image {
     key_numbers?: KeyNumbersSectionType;
     testimonials?: TestimonialsSectionType;
   }
+
+  //
+  export interface Post {
+    id: number,
+    slug: string;
+    date : string;
+    title: {
+      rendered: string;
+    };
+    content: {
+      rendered: string;
+      protected: boolean;
+    };
+    excerpt: {
+      rendered: string;
+      protected: boolean;
+    };
+    author: number;
+    categories: number[];
+    tags: number[];
+  }
+
+  export type Posts = Post[];
+
+  export interface Author {
+    id : number;
+    name: string;
+    slug: string;
+  }
+
+  export type Authors = Author[]
+
+  export interface Category {
+    id : number;
+    name: string;
+    slug: string;
+  }
+
+  export type Categories = Category[]
+
+  export interface Tag {
+    id : number;
+    name: string;
+    slug: string;
+  }
+
+  export type Tags = Tag[]

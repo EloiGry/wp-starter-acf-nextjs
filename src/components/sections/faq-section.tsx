@@ -1,4 +1,4 @@
-import { FAQSectionType } from "@/utils/types"
+import { FAQSectionType } from "@/lib/types"
 import {
     Accordion,
     AccordionContent,

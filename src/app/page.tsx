@@ -8,6 +8,6 @@ if (page.length === 0) return null;
 const contentSections = page[0].acf
 
   return (
-      <>{sectionRenderer(contentSections)}</>
+      <div className="fade-in">{sectionRenderer(contentSections)}</div>
   );
 }

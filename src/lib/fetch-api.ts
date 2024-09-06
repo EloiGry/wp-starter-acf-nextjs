@@ -6,7 +6,7 @@ interface CustomParams {
 
 export async function fetchAPI(
   path: string,
-  slug: string,
+  slug: string | number,
   additionalFields: string[] = [],
   customParams: CustomParams = {},
   useSlugInPath: boolean = false // Nouveau paramètre
@@ -33,10 +33,13 @@ export async function fetchAPI(
   // Construction de l'URL finale
   const url = `${baseUrl}?${queryString}`;
 
+  const token = process.env.API_SECRET_TOKEN_GLOBAL
+
   const mergedOptions = {
     next: { revalidate: 10 },
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
     },
   }
 

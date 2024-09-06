@@ -16,6 +16,7 @@ import {
     navigationMenuTriggerStyle
   } from "@/components/ui/navigation-menu"
 import { ChevronRight } from "lucide-react"
+import { replaceCategoryWithBlog } from "@/lib/api-helpers"
 
   interface NavbarProps {
     menu: Menu;
@@ -36,6 +37,7 @@ export default function Navbar ({menu}: NavbarProps) {
 }
 
 function NavbarDesktop ({menu}: NavbarProps) {
+    console.log(menu)
     return (
         <NavigationMenu className="hidden md:flex">
                 <NavigationMenuList>
@@ -45,13 +47,13 @@ function NavbarDesktop ({menu}: NavbarProps) {
                             <NavigationMenuItem key={item.title}>
                                 {isDropdown ? 
                                     <>
-                                    <Link href={item.url}><NavigationMenuTrigger>{item.title}</NavigationMenuTrigger></Link>
+                                    <Link href={replaceCategoryWithBlog(item.url)}><NavigationMenuTrigger>{item.title}</NavigationMenuTrigger></Link>
                                     <NavigationMenuContent>
                                         <ul className="flex flex-col whitespace-nowrap items-start w-full">
                                         {item.childitems.map(subitem => {
                                             return (
                                                 <li className="w-full" key={subitem.url} >
-                                                    <Link className="w-full" href={subitem.url} legacyBehavior passHref >
+                                                    <Link className="w-full" href={replaceCategoryWithBlog(subitem.url)} legacyBehavior passHref >
                                                         <NavigationMenuLink className={`${navigationMenuTriggerStyle()} w-full items-start justify-start`}>
                                                             {subitem.title}
                                                         </NavigationMenuLink>
@@ -63,7 +65,7 @@ function NavbarDesktop ({menu}: NavbarProps) {
                                     </NavigationMenuContent>
                                     </> : 
 
-                                    <Link href={item.url} legacyBehavior passHref >
+                                    <Link href={replaceCategoryWithBlog(item.url)} legacyBehavior passHref >
                                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                         {item.title}
                                     </NavigationMenuLink>
@@ -100,7 +102,7 @@ function MobileNavbar ({menu}: NavbarProps) {
                 (
                     <Collapsible className="grid gap-2">
                         <CollapsibleTrigger className="group flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ">
-                        <Link href={item.url} className="flex items-center gap-2">
+                        <Link href={replaceCategoryWithBlog(item.url)} className="flex items-center gap-2">
                             {item.title}
                         </Link>
                         <ChevronRight
@@ -113,7 +115,7 @@ function MobileNavbar ({menu}: NavbarProps) {
                                 return (
                                     <Link
                                         key={subitem.title}
-                                        href={subitem.url}
+                                        href={replaceCategoryWithBlog(subitem.url)}
                                         className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                                         prefetch={false}
                                     >
@@ -126,7 +128,7 @@ function MobileNavbar ({menu}: NavbarProps) {
                 ) : 
                 (
                     <Link
-                    href={item.url}
+                    href={replaceCategoryWithBlog(item.url)}
                     className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                     >

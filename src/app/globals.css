@@ -69,3 +69,157 @@
   
 } 
 
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 500ms cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: fade-in 500ms cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/******************************************* 
+  Rich Text Styles
+*******************************************/ 
+
+/* Headers */
+.rich-text h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold my-4 text-black;
+}
+
+.rich-text h2 {
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold my-4 text-black;
+} 
+
+.rich-text h3 {
+  @apply text-xl md:text-2xl lg:text-3xl font-bold my-4 text-black underline;
+}
+
+.rich-text h4 {
+  @apply text-lg md:text-xl lg:text-2xl font-bold mb-4 text-black;
+}
+
+.rich-text h5 {
+  @apply text-lg lg:text-xl font-bold mb-4 text-black;
+}
+
+.rich-text h6 {
+  @apply text-lg lg:text-xl font-bold mb-4 text-black;
+}
+
+.rich-text p {
+  @apply text-base lg:text-lg text-black py-2;
+}
+
+.rich-text hr {
+  @apply my-8;
+}
+
+.rich-text a {
+  @apply underline;
+}
+
+.rich-text strong {
+  @apply font-bold;
+}
+
+.rich-text em {
+  @apply italic;
+}
+
+.rich-text del {
+  @apply line-through;
+}
+
+/* Blockquotes */
+.rich-text blockquote {
+  @apply border-l-4 pl-4 py-2 mb-4;
+}
+
+/* Lists */
+.rich-text ul {
+  @apply list-disc pl-4 mb-4;
+}
+
+.rich-text ol {
+  @apply list-decimal pl-4 mb-4;
+}
+
+.rich-text li {
+  @apply mb-2;
+}
+
+.rich-text li > ul {
+  @apply list-disc pl-4 mb-2;
+}
+
+.rich-text li > ol {
+  @apply list-decimal pl-4 mb-2;
+}
+
+/* Code blocks */
+.rich-text pre {
+  @apply font-mono rounded p-4  my-6;
+}
+
+.rich-text code {
+  @apply font-mono rounded px-2 py-1;
+}
+
+/* Tables */
+.rich-text table {
+  @apply w-full border-collapse my-6;
+}
+
+.rich-text th {
+  @apply text-left py-2 px-4 font-semibold border-b;
+}
+
+.rich-text td {
+  @apply py-2 px-4 border-b;
+}
+
+/* Images */
+.rich-text img {
+  @apply w-full object-cover rounded-xl my-6;
+}
