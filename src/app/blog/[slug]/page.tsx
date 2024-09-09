@@ -7,7 +7,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const category = await getCategoryById(post[0].categories[0]);
     const author = await getAuthorById(post[0].author);
     const tags = await getTagsByIds(post[0].tags)
-    console.log(tags)
+
     
     const date = new Date(post[0].date).toLocaleDateString("fr-FR", {
         month: "long",
@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         year: "numeric",
       });
     return (
-        <>
+        <div className="fade-in">
         <h1 className="text-center font-semibold text-4xl py-4">
             <span
               dangerouslySetInnerHTML={{ __html: post[0].title.rendered }}
@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <Article dangerouslySetInnerHTML={{ __html: post[0].content.rendered }} className="rich-text"/>
         <p className="italic"> {author.name} </p>
-        </>
+        </div>
     )
 }
 

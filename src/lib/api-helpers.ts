@@ -6,7 +6,12 @@ export async function getFeaturedMediaById(id: number) {
     return await fetchAPI(path, id, additionalFields, {}, true)
   }
 
-  export function replaceCategoryWithBlog(url: string): string {
-    // Utilisation d'une expression régulière pour remplacer 'category' par 'blog'
-    return url.replace('/category/', '/blog/');
+  export function getSlugFromUrl(url: string) {
+    const urlObj = new URL(url);
+    
+    // Divise le chemin (pathname) en segments
+    const pathParts = urlObj.pathname.split('/').filter(Boolean);
+    
+    // Retourne toujours le dernier segment ou une chaîne vide si aucun slug n'est présent
+    return pathParts[pathParts.length - 1] || '';
   }
