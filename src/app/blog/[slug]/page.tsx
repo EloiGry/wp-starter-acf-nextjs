@@ -2,6 +2,20 @@ import { getPosts, getPostBySlug, getCategoryById, getAuthorById, getTagsByIds }
 import { Post } from "@/lib/types";
 import { Article } from "@/components/blog/article";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
+  return {
+    title: post[0].title.rendered,
+    description: post[0].excerpt.rendered,
+  };
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
     const post = await getPostBySlug(params.slug);
     const category = await getCategoryById(post[0].categories[0]);

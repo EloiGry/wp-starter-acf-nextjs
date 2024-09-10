@@ -1,5 +1,14 @@
 import { sectionRenderer } from "@/lib/sections-renderer";
 import { getPageBySlug } from "@/lib/get-page-by-slug";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageBySlug('accueil');
+  return {
+    title: page[0].title.rendered,
+    description: page[0].excerpt.rendered,
+  };
+}
 
 
 export default async function Home() {

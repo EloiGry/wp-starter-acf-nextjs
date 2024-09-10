@@ -1,5 +1,16 @@
 import PostCard from "@/components/blog/post-card";
 import { getPosts } from "@/lib/fetch-posts";
+import { getPageBySlug } from "@/lib/get-page-by-slug";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const page = await getPageBySlug('blog');
+    return {
+      title: page[0].title.rendered,
+      description: page[0].excerpt.rendered,
+    };
+  }
+  
 
 export default async function Blog () {
     const posts = await getPosts();

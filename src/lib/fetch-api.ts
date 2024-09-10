@@ -20,7 +20,7 @@ export async function fetchAPI(
   }
 
   // Gestion des champs supplémentaires et des paramètres personnalisés
-  const defaultFields = ['title', 'slug'];
+  const defaultFields = ['title', 'slug', 'excerpt'];
   const fields = [...defaultFields, ...additionalFields];
 
   const queryParams = useSlugInPath
